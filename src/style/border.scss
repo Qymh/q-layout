@@ -1,0 +1,65 @@
+.q-layout {
+  &-borderTop,
+  &-borderRight,
+  &-borderBottom,
+  &-borderLeft,
+  &-border {
+    position: relative;
+  }
+  &-borderTop::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+    border-top: 1px solid #e1e1e1;
+  }
+  &-borderRight::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    height: 100%;
+    transform-origin: bottom right;
+    transform: scaleX(0.5);
+    border-right: 1px solid #e1e1e1;
+  }
+  &-borderBottom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: bottom right;
+    transform: scaleY(0.5);
+    border-bottom: 1px solid #e1e1e1;
+  }
+  &-borderLeft::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    height: 100%;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+    border-left: 1px solid #e1e1e1;
+  }
+  &-border::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    color: #e1e1e1;
+    transform-origin: left top;
+    transform: scale(0.5);
+    border: 1px solid #e1e1e1;
+  }
+}
