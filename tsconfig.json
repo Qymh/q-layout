@@ -42,6 +42,12 @@
     // 使用的JSX工厂函数
     "jsxFactory": "h"
   },
-  "include": ["src/**/*.ts","**/*.js", "typings/*.d.ts", "src/QRow.ts"],
+  "include": [
+    "src/**/*.ts",
+    "**/*.js",
+    "typings/*.d.ts",
+    "tests/*.spec.ts",
+    "tests/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

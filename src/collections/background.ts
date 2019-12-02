@@ -32,18 +32,6 @@ export const backgroundCollections: CollectionGroup = {
     default: '',
     pure: true
   },
-  bkClip: {
-    raw: 'backgroundClip',
-    type: String,
-    default: '',
-    pure: true
-  },
-  bkOrigin: {
-    raw: 'backgroundOrigin',
-    type: String,
-    default: '',
-    pure: true
-  },
   bkSize: {
     raw: 'backgroundSize',
     type: String,

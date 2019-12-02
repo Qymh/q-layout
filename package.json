@@ -5,21 +5,27 @@
   "main": "index.js",
   "scripts": {
     "dev": "rollup -wc build/package.js",
-    "dev:demo": "rollup -wc build/demo/dev.js"
+    "dev:demo": "rollup -wc build/demo/dev.js",
+    "test": "cross-env NODE_ENV=TEST jest --watchAll --coverage",
+    "commit": "git cz"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@types/jest": "^24.0.22",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.6",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/eslint-plugin-tslint": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
+    "@vue/test-utils": "^1.0.0-beta.30",
     "autoprefixer": "^9.7.1",
-    "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "browser-env": "^3.3.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-config-qymh": "^1.2.2",
@@ -30,10 +36,15 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.0.1",
+    "git-cz": "^3.3.0",
     "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "jest-css-modules": "^2.1.0",
     "lint-staged": "^9.5.0",
+    "node-sass": "^4.13.0",
     "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
     "rollup": "^1.26.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-generate-html-template": "^1.5.0",
@@ -44,10 +55,14 @@
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-vue": "^5.1.2",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
     "stylelint": "^12.0.0",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-prettier": "^1.1.1",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.2",
+    "vue-loader": "^15.7.2",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
@@ -68,6 +83,14 @@
     "*.(t|j)s": [
       "eslint --ext .js,.ts --fix",
       "git add"
+    ]
+  },
+  "ava": {
+    "require": [
+      "./tests/helpers/setup.js"
+    ],
+    "files": [
+      "tests/dist/tests/*.spec.js"
     ]
   }
 }
