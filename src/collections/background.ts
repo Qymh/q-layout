@@ -14,12 +14,12 @@ export const backgroundCollections: CollectionGroup = {
     default: '',
     pure: true
   },
-  bkImage: {
-    raw: 'backgroundImage',
-    type: String,
-    default: '',
-    pure: true
-  },
+  // bkImage: {
+  //   raw: 'backgroundImage',
+  //   type: String,
+  //   default: '',
+  //   pure: true
+  // },
   bkPosition: {
     raw: 'backgroundPosition',
     type: String,
