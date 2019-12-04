@@ -1,10 +1,5 @@
 import { rgb, cm } from './utils';
 
-it('mount', () => {
-  const wrapper = cm('<q-row></q-row>');
-  expect(wrapper.vm).toBeDefined();
-});
-
 describe('background', () => {
   it('background', () => {
     const wrapper = cm('<q-row background="#fff bottom no-repeat"></q-row>');

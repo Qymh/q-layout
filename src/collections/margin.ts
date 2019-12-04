@@ -24,7 +24,7 @@ export const marginCollections: CollectionGroup = {
   },
   margin: {
     raw: 'margin',
-    type: [String, Number],
+    type: String,
     default: ''
   }
 };

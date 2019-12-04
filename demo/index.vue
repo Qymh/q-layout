@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-row border>
+    <q-row height="100">
       123
     </q-row>
   </div>

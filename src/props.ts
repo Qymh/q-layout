@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { Collection, Dictionary } from './types';
+import { Collection, CollectionGroup, Dictionary } from './types';
 import {
   backgroundCollections,
   borderCollections,
@@ -15,7 +15,7 @@ import {
   userCollections,
   flexMap
 } from './collections';
-import { config, mergeProps } from './utils';
+import { config } from './utils';
 
 export const propsCollections = {
   ...backgroundCollections,
@@ -32,6 +32,30 @@ export const propsCollections = {
   ...userCollections
 };
 
+export const defaultProps = {
+  tag: {
+    type: String,
+    default: 'div'
+  }
+};
+
+export function mergeProps(props: CollectionGroup): CollectionGroup {
+  if (!config.collections) {
+    return props;
+  }
+  for (const key in config.collections) {
+    const item = config.collections[key];
+    if (item.coverage || item.alias) {
+      props[item.coverage! || item.alias!] = { ...props[key], ...item };
+      if (item.coverage) {
+        delete props[key];
+      }
+    } else {
+      props[key] = { ...props[key], ...item };
+    }
+  }
+  return props;
+}
 export const mergePropsFn = () => mergeProps(propsCollections);
 
 export function generateProps(props: Dictionary) {

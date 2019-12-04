@@ -4,7 +4,13 @@ import { CollectionGroup } from '../types';
 export const fontCollections: CollectionGroup = {
   fontSize: {
     raw: 'fontSize',
-    type: [String, Number],
+    type: String,
     default: ''
+  },
+  weight: {
+    raw: 'fontWeight',
+    type: [String, Number],
+    default: '',
+    pure: true
   }
 };

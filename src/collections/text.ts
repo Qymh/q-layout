@@ -41,15 +41,9 @@ export const textCollections: CollectionGroup = {
     default: '',
     pure: true
   },
-  wordWrap: {
-    raw: 'wordWrap',
-    type: String,
-    default: '',
-    pure: true
-  },
   indent: {
     raw: 'textIndent',
-    type: String,
+    type: [String, Number],
     default: ''
   }
 };

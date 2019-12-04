@@ -1,11 +1,6 @@
 import { cm } from './utils';
 
-it('mount', () => {
-  const wrapper = cm('<q-row></q-row>');
-  expect(wrapper.vm).toBeDefined();
-});
-
-describe('background', () => {
+describe('border', () => {
   describe('borderTop', () => {
     it('boolean', () => {
       const wrapper = cm('<q-row borderTop></q-row>');
