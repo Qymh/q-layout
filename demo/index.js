@@ -2,13 +2,7 @@ import Vue from 'vue';
 import QRow from '../src/index';
 import Index from './index.vue';
 
-Vue.use(QRow, {
-  collections: {
-    h: {
-      a: '123'
-    }
-  }
-});
+Vue.use(QRow);
 
 export default new Vue({
   el: '#app',

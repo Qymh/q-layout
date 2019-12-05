@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "rollup -wc build/package.js",
     "dev:demo": "rollup -wc build/demo/dev.js",
+    "lint": "eslint . --ext .js,.ts && stylelint **/*.scss",
     "test": "cross-env NODE_ENV=TEST jest --watch --coverage",
     "test:single": "cross-env NODE_ENV=TEST jest --coverage",
+    "test:ci": "codecov",
     "commit": "git cz"
   },
   "author": "",
@@ -25,6 +27,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "browser-env": "^3.3.0",
+    "codecov": "^3.6.1",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
