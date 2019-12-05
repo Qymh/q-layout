@@ -45,4 +45,9 @@ describe('flex', () => {
     const wrapper = cm('<q-row center></q-row>');
     expect(wrapper.element.classList.contains('q-layout-center')).toBeTruthy();
   });
+
+  it('composition', () => {
+    const wrapper = cm('<q-row align="center" justify="center"></q-row>');
+    expect(wrapper.element.classList.contains('q-layout-flex')).toBeTruthy();
+  });
 });

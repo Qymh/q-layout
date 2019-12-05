@@ -85,6 +85,7 @@ describe('index', () => {
         localVue
       }
     );
+    expect(wrapper1.element.tagName.toLocaleLowerCase()).toBe('span');
     expect(wrapper1.element.style.fontFamily).toBe('monospace');
   });
 });

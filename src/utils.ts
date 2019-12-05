@@ -10,7 +10,15 @@ export function assert(bool: boolean, msg: string): boolean {
   return false;
 }
 
-const base: InstallConfig = {
+export function warn(bool: boolean, msg: string): boolean {
+  if (!bool && process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line no-console
+    console.warn(`[q-layout]: ${msg}`);
+  }
+  return false;
+}
+
+export const base: InstallConfig = {
   unit: 'px',
   ratio: 1,
   decimals: 3
@@ -26,8 +34,16 @@ export function setConfig(conf: InstallConfig) {
 }
 
 export function makeMap(map: string) {
-  return map.split('').reduce<Dictionary<boolean>>((acc, val) => {
+  return map.split(',').reduce<Dictionary<boolean>>((acc, val) => {
     acc[val] = true;
     return acc;
   }, {});
+}
+
+export function isObj(value: any) {
+  return Object.prototype.toString.call(value).slice(8, -1) === 'Object';
+}
+
+export function toPlain(value: any) {
+  return Object.prototype.toString.call(value).slice(8, -1);
 }

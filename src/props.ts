@@ -32,7 +32,7 @@ export const propsCollections = {
   ...userCollections
 };
 
-export const defaultProps = {
+export const defaultProps: Dictionary = {
   tag: {
     type: String,
     default: 'div'
@@ -40,6 +40,9 @@ export const defaultProps = {
 };
 
 export function mergeProps(props: CollectionGroup): CollectionGroup {
+  for (const key in defaultProps) {
+    props[key] = defaultProps[key];
+  }
   if (!config.collections) {
     return props;
   }
@@ -68,12 +71,6 @@ export function generateProps(props: Dictionary) {
         prop = prop.trim();
       }
       const raw = propsCollections[key];
-      if (!raw) {
-        return {
-          style,
-          className
-        };
-      }
       if (raw.classPure) {
         processClassPureProps(prop, raw, className, style);
       } else if (raw.class) {

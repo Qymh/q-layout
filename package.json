@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "rollup -wc build/package.js",
     "dev:demo": "rollup -wc build/demo/dev.js",
-    "test": "cross-env NODE_ENV=TEST jest --watchAll --coverage",
+    "test": "cross-env NODE_ENV=TEST jest --watch --coverage",
+    "test:single": "cross-env NODE_ENV=TEST jest --coverage",
     "commit": "git cz"
   },
   "author": "",
