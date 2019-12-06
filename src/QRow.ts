@@ -15,7 +15,7 @@ const QRow = () =>
     },
     render(this: any, h) {
       return h(
-        this.tag || 'div',
+        this.tag,
         { style: this.style, class: this.className },
         this.$slots.default
       );

@@ -21,11 +21,13 @@ const collectionsMap = makeMap(
 );
 
 function checkConfig(config: InstallConfig) {
-  if (!isObj(config)) {
-    return assert(
-      false,
+  if (
+    assert(
+      isObj(config),
       `config must be an Object but now get ${toPlain(config)}`
-    );
+    )
+  ) {
+    return;
   }
   for (const key in config) {
     if (!configMap[key]) {

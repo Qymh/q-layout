@@ -88,4 +88,23 @@ describe('index', () => {
     expect(wrapper1.element.tagName.toLocaleLowerCase()).toBe('span');
     expect(wrapper1.element.style.fontFamily).toBe('monospace');
   });
+
+  it('unit', () => {
+    const localVue: any = createLocalVue();
+    localVue._installedPlugins = [];
+    localVue.use(QLayout, {
+      unit: 'vw',
+      ratio: '35'
+    });
+
+    const wrapper1 = mount(
+      {
+        template: '<q-row height="100"></q-row>'
+      },
+      {
+        localVue
+      }
+    );
+    expect(wrapper1.element.style.height).toBe('2.857vw');
+  });
 });

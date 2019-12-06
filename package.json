@@ -7,8 +7,8 @@
     "dev": "rollup -wc build/package.js",
     "dev:demo": "rollup -wc build/demo/dev.js",
     "lint": "eslint . --ext .js,.ts && stylelint **/*.scss",
-    "test": "cross-env NODE_ENV=TEST jest --watch --coverage",
-    "test:single": "cross-env NODE_ENV=TEST jest --coverage",
+    "test": "cross-env NODE_ENV=development jest --watchAll --coverage",
+    "test:single": "cross-env NODE_ENV=development jest --coverage",
     "test:ci": "codecov",
     "commit": "git cz"
   },
