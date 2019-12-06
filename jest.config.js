@@ -9,5 +9,6 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/'],
   collectCoverageFrom: ['src/**/*.ts'],
-  coverageDirectory: 'coverage'
+  coverageDirectory: 'coverage',
+  collectCoverage: true
 };
