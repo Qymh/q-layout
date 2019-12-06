@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .js,.ts && stylelint **/*.scss",
     "test": "cross-env NODE_ENV=development jest --watchAll",
     "test:single": "cross-env NODE_ENV=development jest",
-    "test:ci": "NODE_ENV=jest && codecov",
+    "test:ci": "NODE_ENV=development jest && codecov",
     "commit": "git cz"
   },
   "author": "",
