@@ -74,14 +74,14 @@ The above generative result will be `height:100.000vw`
 
 - ratio
 
-The radio between the practical value and the setting value, default value is 1
+The ratio between the practical value and the setting value, default value is 1
 
 ```javascript
 import Vue from 'vue';
 import QLayout from 'q-layout';
 Vue.use(QLayout, {
   unit: 'vw',
-  radio: 7.5
+  ratio: 7.5
 });
 ```
 
@@ -100,7 +100,7 @@ import Vue from 'vue';
 import QLayout from 'q-layout';
 Vue.use(QLayout, {
   unit: 'vw',
-  radio: 7.5,
+  ratio: 7.5,
   decimals: 2
 });
 ```
