@@ -46,7 +46,8 @@
     "src/**/*.ts",
     "typings/*.d.ts",
     "tests/*.spec.ts",
-    "tests/*.ts"
+    "tests/*.ts",
+    "*.js"
   ],
   "exclude": ["node_modules"]
 }
