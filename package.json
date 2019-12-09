@@ -1,19 +1,37 @@
 {
   "name": "q-layout",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "A vue component which can make your development efficiency rapidly",
+  "main": "dist/q-layout.esm.js",
   "scripts": {
-    "dev": "rollup -wc build/package.js",
+    "check": "yarn upgrade-interactive --latest",
     "dev:demo": "rollup -wc build/demo/dev.js",
     "lint": "eslint . --ext .js,.ts && stylelint **/*.scss",
+    "build": "yarn build:pack",
+    "build:pack": "node build/package.js",
     "test": "cross-env NODE_ENV=development jest --watchAll",
     "test:single": "cross-env NODE_ENV=development jest",
     "test:ci": "NODE_ENV=development jest && codecov",
-    "commit": "git cz"
+    "commit": "git cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Qymh",
+    "email": "415570450@qq.com"
+  },
+  "keywords": [
+    "vue",
+    "layout",
+    "components"
+  ],
+  "engines": {
+    "node": ">=8.15.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qymh/q-layout.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
@@ -28,11 +46,12 @@
     "babel-loader": "^8.0.6",
     "browser-env": "^3.3.0",
     "codecov": "^3.6.1",
+    "conventional-changelog-cli": "^2.0.28",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
-    "eslint-config-qymh": "^1.2.2",
+    "eslint-config-qymh": "^1.2.3",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
@@ -40,8 +59,11 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.0.1",
+    "execa": "^3.4.0",
+    "fs-extra": "^8.1.0",
     "git-cz": "^3.3.0",
     "husky": "^3.1.0",
+    "inquirer": "^7.0.0",
     "jest": "^24.9.0",
     "jest-css-modules": "^2.1.0",
     "lint-staged": "^9.5.0",
@@ -60,10 +82,12 @@
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-vue": "^5.1.2",
     "sass-loader": "^8.0.0",
+    "semver": "^6.3.0",
     "style-loader": "^1.0.1",
     "stylelint": "^12.0.0",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-prettier": "^1.1.1",
+    "terser": "^4.4.2",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2",
     "vue-loader": "^15.7.2",
@@ -87,14 +111,6 @@
     "*.(t|j)s": [
       "eslint --ext .js,.ts --fix",
       "git add"
-    ]
-  },
-  "ava": {
-    "require": [
-      "./tests/helpers/setup.js"
-    ],
-    "files": [
-      "tests/dist/tests/*.spec.js"
     ]
   }
 }

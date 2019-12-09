@@ -44,7 +44,6 @@
   },
   "include": [
     "src/**/*.ts",
-    "**/*.js",
     "typings/*.d.ts",
     "tests/*.spec.ts",
     "tests/*.ts"
