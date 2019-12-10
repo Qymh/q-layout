@@ -3,3 +3,4 @@ demoDist
 dist
 coverage
 yarn-error.log
+scripts/vetur.js

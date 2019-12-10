@@ -1,3 +1,4 @@
 dist/*
 coverage
 demoDist/*
+scripts/vetur.js
