@@ -6,6 +6,10 @@
 ![](https://img.shields.io/npm/dw/q-layout)
 ![](https://img.shields.io/npm/l/q-layout)
 
+## CHANGELOG
+
+[CHANGELOG](https://github.com/Qymh/q-layout/blob/master/CHANGELOG.md)
+
 ## Usage
 
 ### Download
@@ -114,7 +118,7 @@ The above generative result will be `height:13.33vw`
 
 - collections
 
-[We provide many props that can satisfy many demands](https://github.com/Qymh/q-layout/blob/master/src/collections/background.ts), but if you want to add some custom css property or change default css property you can use collections
+[We provide many props that can satisfy many demands](###Props), but if you want to add some custom css property or change default css property you can use collections
 
 collections has some configurations
 
