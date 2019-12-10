@@ -17,7 +17,11 @@ log "build code"
 yarn build
 
 git add .
-git commit -m "chore: 🤖 $version code"
+
+if [[ `git status -s | grep -o -E ".*"` ]]
+then
+  git commit -m "chore: 🤖 $version code"
+fi
 
 log "write version"
 npm version $version --message "$version"
