@@ -1,6 +1,6 @@
 {
   "name": "q-layout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A vue component which can make your development efficiency rapidly",
   "main": "dist/q-layout.esm.js",
   "scripts": {
