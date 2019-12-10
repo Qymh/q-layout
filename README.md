@@ -118,7 +118,7 @@ The above generative result will be `height:13.33vw`
 
 - collections
 
-[We provide many props that can satisfy many demands](###Props), but if you want to add some custom css property or change default css property you can use collections
+[We provide many props that can satisfy many demands](#Props), but if you want to add some custom css property or change default css property you can use collections
 
 collections has some configurations
 
@@ -320,10 +320,10 @@ We separate css properties by [w3c standard classification](https://www.w3school
 - raw the original css property
 - default the same as vue prop's default value
 - translateType
-  - [default](#####raw&type&default)
-  - [pure](#####pure)
-  - [class](#####class)
-  - [classPure](#####classPure)
+  - [default](#raw&type&default)
+  - [pure](#pure)
+  - [class](#class)
+  - [classPure](#classPure)
 
 The using is simple
 
@@ -465,4 +465,4 @@ The following are built-in props
 
 We using `vetur` to provide code hints. The [above props](###Props) are all including in the configuration.
 
-If you have set custom property by using [alias coverage or custom property](###InstallOptions) you may need add custom attributes, click [here](https://vuejs.github.io/vetur/framework.html#custom-tags-attributes) to see vetur's docs,click [here](https://github.com/Qymh/q-layout/blob/master/vetur/attributes.json) to see our default attributes
+If you have set custom property by using [alias coverage or custom property](#InstallOptions) you may need add custom attributes, click [here](https://vuejs.github.io/vetur/framework.html#custom-tags-attributes) to see vetur's docs,click [here](https://github.com/Qymh/q-layout/blob/master/vetur/attributes.json) to see our default attributes
