@@ -33,6 +33,10 @@
     "type": "git",
     "url": "git+https://github.com/Qymh/q-layout.git"
   },
+  "vetur": {
+    "tags": "vetur/tags.json",
+    "attributes": "vetur/attributes.json"
+  },
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
