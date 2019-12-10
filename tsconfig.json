@@ -47,7 +47,8 @@
     "typings/*.d.ts",
     "tests/*.spec.ts",
     "tests/*.ts",
-    "*.js"
+    "*.js",
+    "types/*.d.ts", "types/index.ts"
   ],
   "exclude": ["node_modules"]
 }
