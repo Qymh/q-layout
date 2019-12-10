@@ -16,6 +16,9 @@ yarn lint
 log "build code"
 yarn build
 
+git add .
+git commit -m "chore: 🤖 $version code"
+
 log "write version"
 npm version $version --message "$version"
 
