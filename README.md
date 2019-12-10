@@ -435,7 +435,7 @@ The following are built-in props
 | r          | String Number |     right     |   ''    |       default |
 | b          | String Number |    bottom     |   ''    |       default |
 | l          | String Number |     left      |   ''    |       default |
-| diplay     |    String     |    display    |   ''    |          pure |
+| display    |    String     |    display    |   ''    |          pure |
 | float      |    String     |     float     |   ''    |          pure |
 | cursor     |    String     |    cursor     |   ''    |          pure |
 | va         |    String     | verticalAlign |   ''    |          pure |
