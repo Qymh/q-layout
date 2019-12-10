@@ -170,23 +170,23 @@ now only `height` can be translated, the property `h` has been removed
 
 If you need to configurate some custom properties you can use following configurations `raw` `type` `default` `pure` `class` `classPure`
 
-- raw
+##### raw
 
 The original css property, which is **required**
 
-- type
+##### type
 
 The property's type
 
 > The same as the prop's type in vue, which is **required**
 
-- default
+##### default
 
 The property's default value
 
 > The same as the prop's default value in vue, which is **required**
 
-- raw + type + default
+##### raw&type&default
 
 To translate property by using settings `unit` and `ratio`
 
@@ -220,7 +220,7 @@ And if maxh is a number,it will translate into percent
 
 The above generative result will be `max-height:10%`
 
-- pure
+##### pure
 
 To direct translating property if the value is true, default is **false**
 
@@ -245,7 +245,7 @@ Vue.use(QLayout, {
 
 The above generative result will be `font-family:monospace`
 
-- class
+##### class
 
 Translate property by setting classNames not styles
 
@@ -270,7 +270,7 @@ Vue.use(QLayout, {
 
 The above generative result will be `<div class="q-layout-rawDiyClass-test"></div>`
 
-- classPure
+##### classPure
 
 If property is a boolean will enable `class` if not will enable `pure`
 
@@ -310,6 +310,34 @@ The above generative result will be `border:1px solid #666` and will not set a c
 ### Props
 
 We separate css properties by [w3c standard classification](https://www.w3school.com.cn/cssref/index.asp)
+
+- props the same as vue props
+- Type the same as vue prop's type
+- raw the original css property
+- default the same as vue prop's default value
+- translateType
+  - [default](#####raw&type&default)
+  - [pure](#####pure)
+  - [class](#####class)
+  - [classPure](#####classPure)
+
+The using is simple
+
+props will be translated to original css property by using diffrent translateType
+
+For an example
+
+```html
+<q-row bkColor="#fff">123</q-row>
+```
+
+it will be translated to
+
+```javascript
+<div style="backgroundColor:#fff">123</div>
+```
+
+The following are built-in props
 
 #### Background
 
@@ -422,10 +450,15 @@ We separate css properties by [w3c standard classification](https://www.w3school
 | textAlign     | String |   textAlign   |   ''    |          pure |
 | whiteSpace    | String |  whiteSpace   |   ''    |          pure |
 | wordBreak     | String |   wordBreak   |   ''    |          pure |
-|               |        |               |         |               |
 
 #### User
 
 | props |  Type  |    Raw    | Default | TranslateType |
 | ----- | :----: | :-------: | :-----: | ------------: |
 | box   | String | boxSizing |   ''    |          pure |
+
+## Code Hints
+
+We using `vetur` to provide code hints. The [above props](###Props) are all including in the configuration.
+
+If you have set custom property by using [alias coverage or custom property](###InstallOptions) you may need add custom attributes, click [here](https://vuejs.github.io/vetur/framework.html#custom-tags-attributes) to see vetur's docs,click [here](https://github.com/Qymh/q-layout/blob/master/vetur/attributes.json) to see our default attributes
