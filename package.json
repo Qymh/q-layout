@@ -8,7 +8,7 @@
     "dev:demo": "rollup -wc build/demo/dev.js",
     "lint": "eslint . --ext .js,.ts,.d.ts && stylelint **/*.scss",
     "build": "yarn build:pack",
-    "build:pack": "node build/package.js",
+    "build:pack": "node build/package.js && yarn vetur",
     "vetur": "rollup -c build/vetur.js && node scripts/vetur.js",
     "test": "cross-env NODE_ENV=development jest --watchAll",
     "test:single": "cross-env NODE_ENV=development jest",

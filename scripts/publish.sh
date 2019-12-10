@@ -24,7 +24,7 @@ git tag -d "v${version}"
 log "changelog"
 yarn changelog
 git add .
-git commit -m "chore:🤖 $version changelog"
+git commit -m "chore: 🤖 $version changelog"
 
 git tag "v${version}"
 
