@@ -32,6 +32,6 @@ git commit -m "chore: 🤖 $version changelog"
 git tag "v${version}"
 
 log "publishing"
-npm publish --tag $tag
+npm publish
 git push
 git push origin v$version
