@@ -14,7 +14,7 @@
     "test:single": "cross-env NODE_ENV=development jest",
     "test:ci": "NODE_ENV=development jest && codecov",
     "pub": "node scripts/publish",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "commit": "git cz"
   },
   "author": {

@@ -23,7 +23,7 @@ const bumpChoices = bumps.reduce((acc, val) => {
 }, []);
 
 async function release() {
-  const { bump, customVersion, npmTag } = await inquirer.prompt([
+  const { bump, customVersion } = await inquirer.prompt([
     {
       name: 'bump',
       message: 'Please choose the release type:',
@@ -52,7 +52,7 @@ async function release() {
     return;
   }
 
-  const promise = execa('bash', ['scripts/publish.sh', curVersion, npmTag]);
+  const promise = execa('bash', ['scripts/publish.sh', curVersion]);
   promise.stdout.pipe(process.stdout);
   promise.stderr.pipe(process.stderr);
   // eslint-disable-next-line
