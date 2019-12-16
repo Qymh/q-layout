@@ -72,6 +72,7 @@
     "inquirer": "^7.0.0",
     "jest": "^24.9.0",
     "jest-css-modules": "^2.1.0",
+    "js-beautify": "^1.10.2",
     "lint-staged": "^9.5.0",
     "node-sass": "^4.13.0",
     "postcss-px-to-viewport": "^1.1.1",

@@ -1,5 +1,6 @@
 import { propsCollections } from '../src/props';
 import * as fs from 'fs-extra';
+import beautify from 'js-beautify';
 
 const tags = {
   'q-row': {
@@ -40,5 +41,11 @@ for (const key in propsCollections) {
 const tagsJSON = JSON.stringify(tags);
 const attributesJSON = JSON.stringify(attributes);
 
-fs.outputFileSync('vetur/tags.json', tagsJSON);
-fs.outputFileSync('vetur/attributes.json', attributesJSON);
+fs.outputFileSync(
+  'vetur/tags.json',
+  beautify.js(tagsJSON, { indent_size: 2, space_in_empty_paren: true })
+);
+fs.outputFileSync(
+  'vetur/attributes.json',
+  beautify.js(attributesJSON, { indent_size: 2, space_in_empty_paren: true })
+);
