@@ -46,34 +46,40 @@ And then you can use `q-row` component anywhere
 
 ## Why q-layout exists
 
-As The description of this repository, this is a component which make can improve your efficiency in coding layouts of a webpage
+As The description of this repository, this is a component which can improve your efficiency in coding layouts of a webpage
 
-In the usual development, we build the layout of a webpage by `html` `css` or a littile bit `javascript`, `javascript` will only be using more in some logics of code not the layout
+In the usual development, we build the layout of a webpage by `html` `css` or a littile bit `javascript`, `javascript` will only be using more in some logics of codes but not the layout
 
-During coding the layout of a webpage, we will code html first and name a className of an element, just like `<div class="test"></div>`,
-or naming it by an id, but whatever you should define a sign of an element.
+During coding the layout of a webpage, we will code html first and name a className for an element, just like `<div class="test"></div>`,
+or naming it by an id, but whatever you should define a sign for an element.
 
-And there is a rule in naming the className of elements which call [bem](http://getbem.com/introduction/), but if you are using `vue`, it will be not necessary because vue has a [scoped css](https://vue-loader.vuejs.org/guide/scoped-css.html) concept
+And there is a rule in naming the className for elements which call [bem](http://getbem.com/introduction/), but if you are using `vue`, it will be not necessary because vue has a [scoped css](https://vue-loader.vuejs.org/guide/scoped-css.html) concept
 
 But you can check that some vue ui components also use the `bem` naming rule, because it will be much more standard.
 
-This is the first problem, Do you find there is troublesome to name an element in business codes ?
+This is the first problem, Don't you find there is troublesome to name an element in business codes ?
 
-And then, after you define a sign for the element, you need to code `css` for the element, code `css` in `vue` is easy too.
+**You may need to cudgele your brains to name an element by classNames**
+
+After you define a sign for an element, you need to code `css` for it, code `css` in `vue` is easy too.
+
+just like this
 
 ```vue
-<style>
+<style scoped>
 .test {
   color: blue;
 }
 </style>
 ```
 
-but when the page's business is complex, there will be a a lot of elements and a lot of classes, usualy we checked the layout of the page will not direct check the code, we will check it by using chrome's tool, and then if there are some optimizing we will find the sign of the element and change the element's css. It will be not necessary,Image that, if you code css in html, Won't you cut down a step to change css
+But when the page's business is complex, there will be a a lot of elements and a lot of classeNames, usualy we checked the layout of the page will not direct check the code, we will check it by using chrome's tool, and then if we may change the style we should find the sign of the element first and then can change the element's css.
+
+It will be not necessary,Image that, if you code css in html, Won't you cut down a step to change css
 
 for example
 
-There is a element which height is 100px
+There is an element which height is 100px
 
 The usual way to code it is like this
 
@@ -108,10 +114,10 @@ export default {};
 It will be translated the same as the usual way
 
 ```html
-<div style="height:100px">test</div>
+<div style="height:100.000px">test</div>
 ```
 
-**No Style** and **no Classname**, you don't need to cudgele your brains to think the naming of the className, and you don't need to find the position to change css,you will only need to find the element
+**No Style** and **no Classnames**, you don't need to cudgele your brains to think the naming of the className, and you don't need to find the position to change css,you will only need to find the element
 
 And we provide many props to code the layout not only `h`
 
@@ -120,6 +126,14 @@ And we provide many props to code the layout not only `h`
 We separate css properties by [w3c standard classification](https://www.w3school.com.cn/cssref/index.asp)
 
 ### Options Explanation
+
+The following documentation just like this
+
+| props   |  Type  |       Raw       | Default | TranslateType |
+| ------- | :----: | :-------------: | :-----: | ------------: |
+| bkColor | String | backgroundColor |   ''    |          pure |
+
+before we check the documentation for props we need know some explanations
 
 #### props
 
@@ -141,35 +155,13 @@ the same as vue prop's default value
 
 different properties have different translatable result
 
-just like `bkColor`, it will translated to the original value
-
-```html
-<q-row bkColor="#fff">test</q-row>
-```
-
-the result is
-
-```html
-<div style="backgroundColor:#fff">test</div>
-```
-
-just like `h`, it will translated by some compute
-
-```html
-<q-row h="100">test</q-row>
-```
-
-the result is
-
-```html
-<div style="height:100.000px">test</div>
-```
-
 - default
 
-to translate property by using settings `unit` and `ratio`
+to translate property by using the settings's `unit` and `ratio`
 
-The default unit is `px` and the default ratio is `1`,you can change that by the [config](InstallOptions).
+The default unit is `px` and the default ratio is `1`
+
+you can change that by the [config](InstallOptions).
 
 for example
 
