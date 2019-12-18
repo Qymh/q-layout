@@ -1,1 +1,6 @@
-{"q-row":{"description":"布局","attributes":["background","bkColor","bkPosition","bkRepeat","bkSize","borderTop","borderRight","borderBottom","borderLeft","border","radius","overflow","overflowX","overflowY","opacity","h","maxh","minh","w","maxw","minw","dir","justify","align","flex","wrap","center","fontSize","weight","mt","mr","mb","ml","margin","pt","pr","pb","pl","padding","position","t","r","b","l","display","float","cursor","va","zIndex","visibility","color","lh","letterSpacing","wordSpacing","textAlign","whiteSpace","wordBreak","indent","box"]}}
+{
+  "q-row": {
+    "description": "布局",
+    "attributes": ["background", "bkColor", "bkPosition", "bkRepeat", "bkSize", "borderTop", "borderRight", "borderBottom", "borderLeft", "border", "radius", "overflow", "overflowX", "overflowY", "opacity", "h", "maxh", "minh", "w", "maxw", "minw", "dir", "justify", "align", "flex", "wrap", "center", "fontSize", "weight", "mt", "mr", "mb", "ml", "margin", "pt", "pr", "pb", "pl", "padding", "position", "t", "r", "b", "l", "display", "float", "cursor", "va", "zIndex", "visibility", "color", "lh", "letterSpacing", "wordSpacing", "textAlign", "whiteSpace", "wordBreak", "indent", "box"]
+  }
+}
