@@ -1,3 +1,12 @@
+## [0.1.3](https://github.com/Qymh/q-layout/compare/v0.1.2...v0.1.3) (2019-12-18)
+
+
+### Features
+
+* 🎸 add js-beautify for the vetur's json ([b2c85d0](https://github.com/Qymh/q-layout/commit/b2c85d0071f3df9114d38172c289514ccc20ec17))
+
+
+
 ## [0.1.2](https://github.com/Qymh/q-layout/compare/v0.1.1...v0.1.2) (2019-12-10)
 
 
