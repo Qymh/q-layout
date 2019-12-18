@@ -7,6 +7,7 @@
 ![](https://img.shields.io/npm/l/q-layout)
 
 [CHANGELOG](https://github.com/Qymh/q-layout/blob/master/CHANGELOG.md)
+[中文文档](https://github.com/Qymh/q-layout/blob/master/docs/zh_cn/README.md)
 
 ## Download
 
