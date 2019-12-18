@@ -6,9 +6,9 @@
 ![](https://img.shields.io/npm/dw/q-layout)
 ![](https://img.shields.io/npm/l/q-layout)
 
-[CHANGELOG](https://github.com/Qymh/q-layout/blob/master/CHANGELOG.md)
+[版本更新日志](https://github.com/Qymh/q-layout/blob/master/CHANGELOG.md)
 
-## Download
+## 下载
 
 ### yarn
 
@@ -28,9 +28,9 @@ npm install q-layout
 cpm install q-layout
 ```
 
-## Import
+## 引入
 
-import `q-layout` in the entry file
+在入口文件引入`q-layout`
 
 ```javascript
 import Vue from 'vue';
@@ -38,32 +38,27 @@ import QLayout from 'q-layout';
 Vue.use(QLayout);
 ```
 
-And then you can use the layout component which call `q-row` anywhere
+然后你就可以在任意位置使用`q-row`这个布局组件了
 
 ```html
 <q-row>template</q-row>
 ```
 
-## Why q-layout exists
+## 为什么存在 q-layout
 
-As The description of this repository, this is a component which can improve your efficiency in coding layouts of a webpage
+在我们平常的开发中,我们通过`html` `css`或者少部分的`javascript`来写页面布局
 
-In the usual development, we build the layout of a webpage by `html` `css` or a littile bit `javascript`, `javascript` will only be using more in some logics of codes but not the layout
+对于布局呢,首先我们会先写`html`,然后给元素命名一个类名,像这样`<div class="test"></div>`,当然也可以命名一个 id,但不论怎样,我们都得给元素定义一个标志
 
-During coding the layout of a webpage, we will code html first and name a className for an element, just like `<div class="test"></div>`,
-or naming it by an id, but whatever you should define a sign for an element.
+这种定义标志的方法有一个比较规范的叫[bem 命名准则](http://getbem.com/introduction/),但如果你是用的 vue 可能感触不会那么强烈,因为很少会样式冲突,因为 vue 中有一个[scoped css](https://vue-loader.vuejs.org/guide/scoped-css.html)的概念,这种命名就显得没那么必要
 
-And there is a rule in naming the className for elements which call [bem](http://getbem.com/introduction/), but if you are using `vue`, it will be not necessary because vue has a [scoped css](https://vue-loader.vuejs.org/guide/scoped-css.html) concept
+但如果你仔细研究过很多 vue ui 组件库你会发现,他们都用上了`bem`命名准则,因为这样看起来会很规范,但其实在我们的业务代码中,很少会这么规范,ui 组件库样式命名的标准更多的是为了让使用的开发者能够去在某些特定情况改变样式更方便,但在我们实际的业务开发中,意义却不大
 
-But you can check that some vue ui components also use the `bem` naming rule, because it will be much more standard.
+其实这就是平常写样式的第一个问题,你需要绞尽脑汁的去想 class 名字,有时候想的太简单觉得不合适,有时候命名过于复杂也觉得太麻烦,其实这个是可以解决的,我们先把这个问题放一放
 
-This is the first problem, Don't you find there is troublesome to name an element in business codes ?
+当给元素定义了一个标志后,下一步就是去写样式了,同样的,写样式在`vue`中很方便,在一个文件里面写就行
 
-**You may need to cudgele your brains to name an element by classNames**
-
-After you define a sign for an element, you need to code `css` for it, code `css` in `vue` is easy too.
-
-just like this
+像这样
 
 ```vue
 <style scoped>
@@ -73,15 +68,19 @@ just like this
 </style>
 ```
 
-But when the page's business is complex, there will be a a lot of elements and a lot of classeNames, usualy we checked the layout of the page will not direct check the code, we will check it by using chrome's tool, and then if we may change the style we should find the sign of the element first and then can change the element's css.
+但如果页面一旦复杂起来,就会有大量的元素和大量的样式
 
-It will be not necessary,Image that, if you code css in html, Won't you cut down a step to change css
+想象一下如果我们要改变页面的样式首先第一眼也不会直接去看代码,更多的可能是打开 chrome 开发者工具,然后找到对应的元素的类名,然后再去找到元素研究研究元素周围是啥样,接着去找 css 改
 
-for example
+其实这就是第二个问题,不知道大家在项目开发中有没有体会过,在一个页面上千行或者组件层层嵌套时,寻找元素的成本过大
 
-There is an element which height is 100px
+`q-layout`就是为了解决以上两个问题出现的,我们直接省去了`class`命名也省去了改样式的时候需要找到`css`,现在你只需要找到元素即可
 
-The usual way to code it is like this
+举一个简单的例子
+
+我们要写一个 div 盒子 它的高度为 100px
+
+平常我们会这样写
 
 ```vue
 <template>
@@ -99,7 +98,7 @@ export default {};
 </style>
 ```
 
-We take full advantage of vue's feature, you can write css by using props
+但如果用上了`q-row`组件,你可以直接用`props`去书写样式
 
 ```vue
 <template>
@@ -111,65 +110,61 @@ export default {};
 </script>
 ```
 
-It will be translated the same as the usual way
+以上代码会被转义为
 
 ```html
 <div style="height:100.000px">test</div>
 ```
 
-**No Style** and **no Classnames**, you don't need to cudgele your brains to think the naming of the className, and you don't need to find the position to change css,you will only need to find the element
+没有 class 名字也没有 css 样式,你不需要去花时间想 class 命名,也不需要去寻找 css 样式的位置,直接在元素上即可改变样式
 
-And we provide many props to code the layout not only `h`
+当然我们提供的`props`不止有上面列子中的`h`, 还有很多`props`
 
 ## Props
 
-We separate css properties by [w3c standard classification](https://www.w3school.com.cn/cssref/index.asp)
+我们通过[w3c standard classification](https://www.w3school.com.cn/cssref/index.asp)区分了 props
 
-### Options Explanation
+### 参数说明
 
-The following documentation just like this
+以下的文档解释大概会长这样
 
 | props   |  Type  |       Raw       | Default | TranslateType |
 | ------- | :----: | :-------------: | :-----: | ------------: |
 | bkColor | String | backgroundColor |   ''    |          pure |
 
-before we check the documentation for props we need know some explanations
-
 #### props
 
-the same as vue props
+与 `vue` 中的 `props` 相同
 
 #### type
 
-the same as vue prop's type
+与 `vue` 中的 `prop` 的类型`type`相同
 
 #### raw
 
-the original css property
+转化后的 css 属性
 
 #### default
 
-the same as vue prop's default value
+与`vue`中的`prop`的默认值`default`相同
 
 #### translateType
 
-different properties have different translatable result
+css 转化类型
 
 - default
 
-to translate property by using the settings's `unit` and `ratio`
+通过设置的`css`比值和`css`单位进行转化
 
-The default unit is `px` and the default ratio is `1`
+`css`比值默认是 1,`css`单位默认是`px`,你也可以通过[配置](#Install配置)去改变默认值
 
-you can change that by the [config](InstallOptions).
-
-for example
+举个列子
 
 ```html
 <q-row maxh="100">test</q-row>
 ```
 
-the result is
+转化公式为 `propValue/ratio + unit` 用 props 的值除以比值`1`加上单位`px`,因为默认保留三位小数,所以结果为`100.000px`
 
 ```html
 <div style="maxHeight:100.000px">test</div>
@@ -177,15 +172,15 @@ the result is
 
 - pure
 
-To direct translating property
+直接转换,prop 的值是啥结果就是啥
 
-for example
+举个列子
 
 ```html
 <q-row color="#000">test</q-row>
 ```
 
-the result is
+结果直接转化为
 
 ```html
 <div style="color:#000">test</div>
@@ -193,21 +188,21 @@ the result is
 
 - class
 
-Translate property by setting classNames not styles
+将 prop 值作为样式添加到 dom 上
 
-for example
+举个列子
 
 ```html
 <q-row dir="top">test</q-row>
 ```
 
-the result is
+转义的结果是
 
 ```html
 <div class="q-layout-flexDirection-top">test</div>
 ```
 
-and we have built-in class
+然后我们内置提供了`flex`布局相关的 class 样式
 
 ```css
 .q-layout-flexDirection-top {
@@ -217,27 +212,29 @@ and we have built-in class
 
 - classPure
 
-If property is a boolean will enable `class` if not will enable `pure`
+当 prop 值是布尔值的时候会启用`class`转换,当为其他值的时候会启用`pure`转换
 
-for example
-
-if property is a boolean
+举个列子 当值是布尔的时候
 
 ```html
 <q-row border></q-row>
 ```
 
-The above generative result will be `<div class="q-layout-border"></div>`
+生成的 dom 会被添加 class 样式 `<div class="q-layout-border"></div>`
 
-if property is a string
+当值不是布尔的时候
 
 ```html
 <q-row border="1px solid #666"></q-row>
 ```
 
-The above generative result will be `border:1px solid #666` and will not set a className
+转化后的 html 是
 
-The following are built-in props
+```html
+<div style="border:1px solid #666"></div>
+```
+
+以下的便是内置的 props
 
 ### Background
 
@@ -357,7 +354,7 @@ The following are built-in props
 | ----- | :----: | :-------: | :-----: | ------------: |
 | box   | String | boxSizing |   ''    |          pure |
 
-## InstallOptions
+## Install配置
 
 | Options     |  Type  | Required | Default |             Description |
 | ----------- | :----: | :------: | :-----: | ----------------------: |
@@ -368,7 +365,7 @@ The following are built-in props
 
 - unit
 
-css unit which can be `px` `rem` `vw` or more, default value is `px`
+css 单位可以是`px` `rem` `vw`或者其他值,默认是`px`
 
 ```javascript
 import Vue from 'vue';
@@ -382,11 +379,15 @@ Vue.use(QLayout, {
 <q-row h="100"></q-row>
 ```
 
-The above generative result will be `height:100.000vw`
+生成的结果为
+
+```html
+<div style="height:100.000vw"></div>
+```
 
 - ratio
 
-The ratio between the practical value and the setting value, default value is 1
+prop 值和真实值的转化比,默认是 1
 
 ```javascript
 import Vue from 'vue';
@@ -401,11 +402,15 @@ Vue.use(QLayout, {
 <q-row h="100"></q-row>
 ```
 
-The above generative result will be `height:13.333vw`, because `100/7.5 = 13.333`
+100/7.5 = 13.333 保留三位小数 生成的结果会是
+
+```html
+<div style="height:13.333vw"></div>
+```
 
 - decimals
 
-The computing value's reserved decimal, default value is 3
+计算值的保留小数位数
 
 ```javascript
 import Vue from 'vue';
@@ -421,21 +426,23 @@ Vue.use(QLayout, {
 <q-row h="100"></q-row>
 ```
 
-The above generative result will be `height:13.33vw`
+生成的结果会是
+
+```html
+<div style="height:13.33vw"></div>
+```
 
 - collections
 
-[We provide many props that can satisfy many demands](#Props), but if you want to add some custom css property or change default css property you can use collections
+我们提供了很多默认的[Props](#Props),但如果  你想自定义更多的 props 可以使用`collections`
 
-collections has some configurations
+### 保留原本属性
 
-### Keep Original Property
-
-The following configurations can change property based on the original property
+以下的配置会保留原有的属性
 
 #### alias
 
-you can set an alias name for a property which is existing
+你可以通过`alias`设置一个现有属性的别名
 
 ```javascript
 import Vue from 'vue';
@@ -453,11 +460,15 @@ Vue.use(QLayout, {
 <q-row height="100"></q-row>
 ```
 
-so `h` and `height` can both translate to `height:100.000px`
+此时 `h`和`height`都可以转化为
+
+```html
+<div style="height:100.000px"></div>
+```
 
 #### coverage
 
-if you don't need the original property you can use this to coverage the old property
+你可以通过`coverage`去覆盖一个原有属性
 
 ```javascript
 import Vue from 'vue';
@@ -475,33 +486,33 @@ Vue.use(QLayout, {
 <q-row height="100"></q-row>
 ```
 
-now only `height` can be translated, the property `h` has been removed
+现在只有`height`会被转义为
 
-### New Property
+```html
+<div style="height:100.000px"></div>
+```
 
-If you need to configurate some custom properties you can use following configurations `raw` `type` `default` `pure` `class` `classPure`
+### 新属性
+
+如果你需要添加一个新的属性可以用 `raw` `type` `default` `pure` `class` `classPure` 这几个配置
 
 #### raw
 
-The original css property, which is **required**
+转化后的 css 属性 **必填**
 
 #### type
 
-The property's type
-
-> The same as the prop's type in vue, which is **required**
+props 的类型 **必填**
 
 #### default
 
-The property's default value
-
-> The same as the prop's default value in vue, which is **required**
+props 的默认值 **必填**
 
 #### raw&type&default
 
-To translate property by using settings `unit` and `ratio`
+与[translateType 中 default](#translateType)一样
 
-> wo have collections `maxh` for `maxHeight`, we only give an example here
+> 我们默认已经提供了集合 `maxh` 和 `maxHeight`, 这里只是举个例子
 
 ```javascript
 import Vue from 'vue';
@@ -521,19 +532,25 @@ Vue.use(QLayout, {
 <q-row maxh="100"></q-row>
 ```
 
-The above generative result will be `max-height:100.000px`
+转义后的 html 会是这样
 
-And if maxh is a number,it will translate into percent
+```html
+<div style="max-height:100.000px"></div>
+```
+
+如果 maxh 是一个数字,转义后会变成百分比
 
 ```html
 <q-row :maxh="10"></q-row>
 ```
 
-The above generative result will be `max-height:10%`
+```html
+<div style="max-height:10%"></div>
+```
 
 #### pure
 
-To direct translating property if the value is true, default is **false**
+与[translateType 中 pure](#translateType)一样
 
 ```javascript
 import Vue from 'vue';
@@ -554,11 +571,15 @@ Vue.use(QLayout, {
 <q-row family="monospace"></q-row>
 ```
 
-The above generative result will be `font-family:monospace`
+转义后为
+
+```html
+<div style="font-family:monospace"></div>
+```
 
 #### class
 
-Translate property by setting classNames not styles, default is **false**
+与[translateType 中 class](#translateType)一样
 
 ```javascript
 import Vue from 'vue';
@@ -579,13 +600,17 @@ Vue.use(QLayout, {
 <q-row diyClass="test"></q-row>
 ```
 
-The above generative result will be `<div class="q-layout-rawDiyClass-test"></div>`
+转义后为
+
+```html
+<div class="q-layout-rawDiyClass-test"></div>
+```
 
 #### classPure
 
-If property is a boolean will enable `class` if not will enable `pure`, default is **false**
+与[translateType 中 classPure](#translateType)一样
 
-> wo have collections `border` for `border`, we only give an example here
+> 我们提供了默认的`border`集合,这里只是举一个列子
 
 ```javascript
 import Vue from 'vue';
@@ -602,24 +627,32 @@ Vue.use(QLayout, {
 });
 ```
 
-if property is a boolean
+当属性值是布尔时
 
 ```html
 <q-row border></q-row>
 ```
 
-The above generative result will be `<div class="q-layout-border"></div>`
+会被转义为
 
-if property is a string
+```html
+<div class="q-layout-border"></div>
+```
+
+当属性值是字符时
 
 ```html
 <q-row border="1px solid #666"></q-row>
 ```
 
-The above generative result will be `border:1px solid #666` and will not set a className
+转义为
 
-## Code Hints
+```html
+<div style="border:1px solid #666"></div>
+```
 
-We using `vetur` to provide code hints. The [above props](#Props) are all including in the configuration.
+##  代码提示
 
-If you have set custom property by using [alias coverage or custom property](#InstallOptions) you may need add custom attributes, click [here](https://vuejs.github.io/vetur/framework.html#custom-tags-attributes) to see vetur's docs,click [here](https://github.com/Qymh/q-layout/blob/master/vetur/attributes.json) to see our default attributes
+我们用`vetur`实现代码提示,所有[内置的 props](#Props)被包含在了代码提示中
+
+如果你通过[配置](#Install配置)设置了其他自定义属性,你就需要通过`vetur`去自定义属性的代码提示,[这里](https://vuejs.github.io/vetur/framework.html#custom-tags-attributes)有`vetur`的提示使用文档,[这里](https://github.com/Qymh/q-layout/blob/master/vetur/attributes.json)有我们默认的配置
