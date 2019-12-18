@@ -56,7 +56,7 @@ Vue.use(QLayout);
 
 其实这就是平常写样式的第一个问题,你需要绞尽脑汁的去想 class 名字,有时候想的太简单觉得不合适,有时候命名过于复杂也觉得太麻烦,其实这个是可以解决的,我们先把这个问题放一放
 
-当给元素定义了一个标志后,下一步就是去写样式了,同样的,写样式在`vue`中很方便,在一个文件里面写就行
+我们给元素定义了一个标志后,下一步就是去写样式了,同样的,写样式在`vue`中很方便,在一个文件里面写就行
 
 像这样
 
@@ -134,7 +134,7 @@ export default {};
 
 #### props
 
-与 `vue` 中的 `props` 相同
+与 `vue` 中的 `prop` 相同
 
 #### type
 
@@ -164,10 +164,10 @@ css 转化类型
 <q-row maxh="100">test</q-row>
 ```
 
-转化公式为 `propValue/ratio + unit` 用 props 的值除以比值`1`加上单位`px`,因为默认保留三位小数,所以结果为`100.000px`
+转化公式为 `propValue/ratio + unit` 用 prop 的值除以比值`1`加上单位`px`,因为默认保留三位小数,所以结果为`100.000px`
 
 ```html
-<div style="maxHeight:100.000px">test</div>
+<div style="max-height:100.000px">test</div>
 ```
 
 - pure
@@ -188,7 +188,7 @@ css 转化类型
 
 - class
 
-将 prop 值作为样式添加到 dom 上
+将 prop 值作为class名添加到 dom 上
 
 举个列子
 
@@ -354,7 +354,7 @@ css 转化类型
 | ----- | :----: | :-------: | :-----: | ------------: |
 | box   | String | boxSizing |   ''    |          pure |
 
-## Install配置
+## Install 配置
 
 | Options     |  Type  | Required | Default |             Description |
 | ----------- | :----: | :------: | :-----: | ----------------------: |

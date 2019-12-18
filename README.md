@@ -48,8 +48,6 @@ And then you can use the layout component which call `q-row` anywhere
 
 ## Why q-layout exists
 
-As The description of this repository, this is a component which can improve your efficiency in coding layouts of a webpage
-
 In the usual development, we build the layout of a webpage by `html` `css` or a littile bit `javascript`, `javascript` will only be using more in some logics of codes but not the layout
 
 During coding the layout of a webpage, we will code html first and name a className for an element, just like `<div class="test"></div>`,
@@ -58,10 +56,12 @@ or naming it by an id, but whatever you should define a sign for an element.
 And there is a rule in naming the className for elements which call [bem](http://getbem.com/introduction/), but if you are using `vue`, it will be not necessary because vue has a [scoped css](https://vue-loader.vuejs.org/guide/scoped-css.html) concept
 
 But you can check that some vue ui components also use the `bem` naming rule, because it will be much more standard.
+But actually in the business code,it would be not much standard,the naming in the ui components is for the user who will change the style of the component conventionally,but it is not much more sense to use it in the business code
 
-This is the first problem, Don't you find there is troublesome to name an element in business codes ?
+This is the first problem, Don't you find there is troublesome to name an element in business codes ? If you naming it
+easy you'd find it is not suitable,if naming it complexly you'd find it is trouble
 
-**You may need to cudgele your brains to name an element by classNames**
+But the proble can be resolved,we check it later
 
 After you define a sign for an element, you need to code `css` for it, code `css` in `vue` is easy too.
 
@@ -75,9 +75,11 @@ just like this
 </style>
 ```
 
-But when the page's business is complex, there will be a a lot of elements and a lot of classeNames, usualy we checked the layout of the page will not direct check the code, we will check it by using chrome's tool, and then if we may change the style we should find the sign of the element first and then can change the element's css.
+But when the page's business is complex, there will be a a lot of elements and a lot of classeNames
 
-It will be not necessary,Image that, if you code css in html, Won't you cut down a step to change css
+Usualy we checked the layout of the page will not direct check the code, we will check it by using chrome's tool, and then if we may change the style we should find the sign of the element first and then can change css of the element
+
+It will be not necessary, Image that, if you code css in html, Won't you cut down a step to change css
 
 for example
 
@@ -384,7 +386,11 @@ Vue.use(QLayout, {
 <q-row h="100"></q-row>
 ```
 
-The above generative result will be `height:100.000vw`
+The above generative result will be
+
+```html
+<div style="height:100.000vw"></div>
+```
 
 - ratio
 
@@ -403,7 +409,13 @@ Vue.use(QLayout, {
 <q-row h="100"></q-row>
 ```
 
-The above generative result will be `height:13.333vw`, because `100/7.5 = 13.333`
+The above generative result will be
+
+```html
+<div style="height:13.333vw"></div>
+```
+
+because `100/7.5 = 13.333`
 
 - decimals
 
@@ -423,7 +435,11 @@ Vue.use(QLayout, {
 <q-row h="100"></q-row>
 ```
 
-The above generative result will be `height:13.33vw`
+The above generative result will be
+
+```html
+<div style="height:13.33vw"></div>
+```
 
 - collections
 
@@ -455,7 +471,11 @@ Vue.use(QLayout, {
 <q-row height="100"></q-row>
 ```
 
-so `h` and `height` can both translate to `height:100.000px`
+so `h` and `height` can both translate to
+
+```html
+<div style="height:100.000px"></div>
+```
 
 #### coverage
 
@@ -479,6 +499,10 @@ Vue.use(QLayout, {
 
 now only `height` can be translated, the property `h` has been removed
 
+```html
+<div style="height:100.000px"></div>
+```
+
 ### New Property
 
 If you need to configurate some custom properties you can use following configurations `raw` `type` `default` `pure` `class` `classPure`
@@ -501,7 +525,7 @@ The property's default value
 
 #### raw&type&default
 
-To translate property by using settings `unit` and `ratio`
+The same as [default of translateType](#translateType)
 
 > wo have collections `maxh` for `maxHeight`, we only give an example here
 
@@ -523,7 +547,11 @@ Vue.use(QLayout, {
 <q-row maxh="100"></q-row>
 ```
 
-The above generative result will be `max-height:100.000px`
+The above generative result will be
+
+```html
+<div style="max-height:100.000px"></div>
+```
 
 And if maxh is a number,it will translate into percent
 
@@ -531,11 +559,15 @@ And if maxh is a number,it will translate into percent
 <q-row :maxh="10"></q-row>
 ```
 
-The above generative result will be `max-height:10%`
+The above generative result will be
+
+```html
+<div style="max-height:10%"></div>
+```
 
 #### pure
 
-To direct translating property if the value is true, default is **false**
+The same as [pure of translateType](#translateType)
 
 ```javascript
 import Vue from 'vue';
@@ -556,11 +588,15 @@ Vue.use(QLayout, {
 <q-row family="monospace"></q-row>
 ```
 
-The above generative result will be `font-family:monospace`
+The above generative result will be
+
+```html
+<div style="font-family:monospace"></div>
+```
 
 #### class
 
-Translate property by setting classNames not styles, default is **false**
+The same as [class of translateType](#translateType)
 
 ```javascript
 import Vue from 'vue';
@@ -581,11 +617,15 @@ Vue.use(QLayout, {
 <q-row diyClass="test"></q-row>
 ```
 
-The above generative result will be `<div class="q-layout-rawDiyClass-test"></div>`
+The above generative result will be
+
+```html
+<div class="q-layout-rawDiyClass-test"></div>
+```
 
 #### classPure
 
-If property is a boolean will enable `class` if not will enable `pure`, default is **false**
+The same as [classPure of translateType](#translateType)
 
 > wo have collections `border` for `border`, we only give an example here
 
@@ -610,7 +650,11 @@ if property is a boolean
 <q-row border></q-row>
 ```
 
-The above generative result will be `<div class="q-layout-border"></div>`
+The above generative result will be
+
+```html
+<div class="q-layout-border"></div>
+```
 
 if property is a string
 
@@ -618,7 +662,13 @@ if property is a string
 <q-row border="1px solid #666"></q-row>
 ```
 
-The above generative result will be `border:1px solid #666` and will not set a className
+The above generative result will be
+
+```html
+<div style="border:1px solid #666"></div>
+```
+
+and will not set a className
 
 ## Code Hints
 
