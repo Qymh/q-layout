@@ -35,6 +35,7 @@ cpm install q-layout
 ```javascript
 import Vue from 'vue';
 import QLayout from 'q-layout';
+import 'q-layout/dist/q-layout.css';
 Vue.use(QLayout);
 ```
 
@@ -188,7 +189,7 @@ css 转化类型
 
 - class
 
-将 prop 值作为class名添加到 dom 上
+将 prop 值作为 class 名添加到 dom 上
 
 举个列子
 

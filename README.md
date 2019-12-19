@@ -37,6 +37,7 @@ import `q-layout` in the entry file
 ```javascript
 import Vue from 'vue';
 import QLayout from 'q-layout';
+import 'q-layout/dist/q-layout.css';
 Vue.use(QLayout);
 ```
 
