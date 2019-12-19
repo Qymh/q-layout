@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/Qymh/q-layout/compare/v0.1.3...v0.1.4) (2019-12-19)
+
+
+### Features
+
+* 🎸 add types ([1957ea8](https://github.com/Qymh/q-layout/commit/1957ea84624f1f1c8c50f5ad88a7f3f65d42b8f0))
+
+
+
 ## [0.1.3](https://github.com/Qymh/q-layout/compare/v0.1.2...v0.1.3) (2019-12-18)
 
 
