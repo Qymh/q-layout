@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/Qymh/q-layout/compare/v0.1.4...v0.1.5) (2019-12-23)
+
+
+### Bug Fixes
+
+* make props reactive ([e1a0f42](https://github.com/Qymh/q-layout/commit/e1a0f42f512250d24699078b6fa9a31760264573))
+
+
+
 ## [0.1.4](https://github.com/Qymh/q-layout/compare/v0.1.3...v0.1.4) (2019-12-19)
 
 
