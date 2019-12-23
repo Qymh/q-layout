@@ -27,7 +27,7 @@ function checkConfig(config: InstallConfig) {
       `config must be an Object but now get ${toPlain(config)}`
     )
   ) {
-    return;
+    return true;
   }
   for (const key in config) {
     if (!configMap[key]) {
@@ -59,7 +59,11 @@ function checkCollections(collections: InstallCollectionGroup) {
 
 export default {
   install(Vue: VueConstructor, Config: InstallConfig) {
-    if (checkConfig(Config)) {
+    if (Config) {
+      if (checkConfig(Config)) {
+        Config = base;
+      }
+    } else {
       Config = base;
     }
     setConfig(Config);
