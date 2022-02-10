@@ -75,7 +75,7 @@
     "jest-css-modules": "^2.1.0",
     "js-beautify": "^1.10.2",
     "lint-staged": "^9.5.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
